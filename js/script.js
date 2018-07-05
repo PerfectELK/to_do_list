@@ -9,6 +9,7 @@ var vue = new Vue({
     },
     methods:{
         addTask: function(){
+            this.tasks = JSON.parse(localStorage.getItem(INDEX_STORAGE)) || [];
             if(this.task != "") {
                 var obj = {
                     id: this.tasks.length + 1,
@@ -21,6 +22,7 @@ var vue = new Vue({
             }
         },
         removeTask: function(identificator){
+            this.tasks = JSON.parse(localStorage.getItem(INDEX_STORAGE)) || [];
             for(var i = 0; i < this.tasks.length; i++){
                 var task_id = this.tasks[i].id;
                 if(task_id == identificator){
