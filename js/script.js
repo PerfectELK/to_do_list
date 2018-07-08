@@ -5,7 +5,8 @@ console.log(localStorage);
 var vue = new Vue({
     el:'#app',
     data:{
-        tasks: JSON.parse(localStorage.getItem(INDEX_STORAGE)) || []
+        tasks: JSON.parse(localStorage.getItem(INDEX_STORAGE)) || [],
+        task: ""
     },
     methods:{
         addTask: function(){
