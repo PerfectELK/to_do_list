@@ -35,8 +35,18 @@ var vue = new Vue({
         },
         syncTask(identificator){
             console.log(identificator);
+            this.tasks = JSON.parse(localStorage.getItem(INDEX_STORAGE));
+             for(var i = 0; i < this.tasks.length; i++) {
+                 var task_id = this.tasks[i].id;
+                 if (task_id == identificator && this.tasks[i].done == false) {
+                     this.tasks[i].done = true;
+                 } else if(task_id == identificator ) {
+                     this.tasks[i].done = false;
+                 }
+             }
             var object = JSON.stringify(this.tasks);
             localStorage.setItem(INDEX_STORAGE, object);
+
         },
         renderAllTask(){
             this.tasks = JSON.parse(localStorage.getItem(INDEX_STORAGE)) || [];
